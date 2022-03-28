@@ -1,0 +1,49 @@
+﻿@page "/ProductosAdd/{id}"
+@using Application.Business.Services
+@using Entities.Entities
+@inject ProductosServices ProductosService;
+
+<h3>ProductosAdd</h3>
+<EditForm Model="AddOrEdit" OnSubmit="@SubmitForm">
+
+    <div class="form-group">
+        <label>Id</label>
+        <InputText id="name" class="form-control" name="name" bind-Value="employee.Name"></InputText>
+    </div>
+    <button type="submit" class="btn btn-primary">Update</button>
+</EditForm>
+
+@code {
+    public string Id{ get; set; }
+    tbProductos producto = new tbProductos();
+    private tbProductos Productos { get; set; }
+
+        if(Id != "0")
+        {
+        Productos = ProductosServices.GetOne(Id);
+
+        }
+        //else{
+
+    //   Productos = ProductosService.GetOne(Id);
+    //}
+
+    private async void SubmitForm()
+    {
+        if (!Productos.prod_Id.Equals(0))
+        {
+
+            await ProductosService.Add(Productos);
+        }
+        else
+        {
+            await ProductosService.Edit(Productos);
+
+        }
+
+        Navigation.NavigateTo("productos");
+
+    }
+
+}
+

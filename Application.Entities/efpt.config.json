@@ -1,0 +1,55 @@
+﻿{
+   "CodeGenerationMode": 0,
+   "ContextClassName": "DBEXAMENContext",
+   "ContextNamespace": null,
+   "DefaultDacpacSchema": null,
+   "FilterSchemas": false,
+   "IncludeConnectionString": false,
+   "ModelNamespace": null,
+   "OutputContextPath": "DbContextContainer",
+   "OutputPath": "Entities",
+   "ProjectRootNamespace": "Application.Entities",
+   "Schemas": null,
+   "SelectedHandlebarsLanguage": 0,
+   "SelectedToBeGenerated": 0,
+   "Tables": [
+      {
+         "Name": "[dbo].[tbProductos]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[tbTipoProductos]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[tbUnidadMedidas]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[PR_tbProductos_Insert]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[PR_tbProductos_List]",
+         "ObjectType": 1
+      }
+   ],
+   "UiHint": "JOHN-EB\\SQLEXPRESS.DBEXAMEN",
+   "UseBoolPropertiesWithoutDefaultSql": false,
+   "UseDatabaseNames": true,
+   "UseDbContextSplitting": true,
+   "UseFluentApiOnly": true,
+   "UseHandleBars": false,
+   "UseHierarchyId": false,
+   "UseInflector": false,
+   "UseLegacyPluralizer": false,
+   "UseManyToManyEntity": false,
+   "UseNoConstructor": false,
+   "UseNoDefaultConstructor": false,
+   "UseNoNavigations": false,
+   "UseNoObjectFilter": false,
+   "UseNodaTime": false,
+   "UseNullableReferences": false,
+   "UseSchemaFolders": true,
+   "UseSpatial": false
+}

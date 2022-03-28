@@ -1,0 +1,91 @@
+﻿@page "/Productos"
+@*@using Application.Business.Services*@
+@using Application.Business.Services
+@using Entities.Entities
+@inject ProductosServices ProductosService;
+
+<h3>Productos</h3>
+
+@if (PropProductos == null)
+{
+    <span>Loading Super Heroes...</span>
+}
+else
+{
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Precio</th>
+                <th>Tipo Producto</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var ListProductos in PropProductos)
+            {
+                <tr>
+                    <td>@ListProductos.prod_Nombre</td>
+                    <td>@ListProductos.prod_Precio</td>
+                    <td>@ListProductos.tipro_Nombre</td>
+                    <td>
+                        <a href="ProductosAdd/@ListProductos.prod_Id" class="btn btn-primary">Edit</a> |
+                        @*<button class="btn btn-primary" @onclick="async() => await Delete(@ListProductos.prod_Id)">Remove</button>*@
+                    </td>
+
+                    <td>
+                    </td>
+                    @*    <td>
+                        <a class="btn btn-primary" @onclick="(() => Edit(ListProductos.prod_Id))">Edit</a>
+                        </td>*@
+                    @*<td>
+                        <button class="btn btn-primary" @onclick="(() => ShowHero(hero.Id))">Show</button>
+                        </td>
+                        <td>
+                        <button class="btn btn-primary" @onclick="(() => DeleteHero(hero.Id))">Delete</button>
+                        </td>
+                    *@
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@*<EditSuperHero Hero="heroToEdit"></EditSuperHero>*@
+
+@code {
+    //private ProductosServices _ProductosService;
+    public PR_tbProductos_ListResult[] PropProductos { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+
+        try
+        {
+            PropProductos = await ProductosService.GetAll();
+        }
+        catch (Exception e)
+        {
+
+        }
+    }
+
+    //void ShowHero(int id)
+    //{
+    //    NavigationManager.NavigateTo($"superhero/{id}");
+    //}
+
+    //void Edit(int id)
+    //{
+    //    heroToEdit = productosServices.Find(id);
+    //}
+
+     async void Delete(int id)
+    {
+        await ProductosService.Remove(id);
+    }
+
+    //public void Dispose()
+    //{
+    //    productosServices.OnChange -= StateHasChanged;
+    //}
+}
